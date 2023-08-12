@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@
 }
 
 .gradientBox {
-  background: linear-gradient(244deg,#e2a4d6,#f17aa0,#f39fbb,#ef98e2,#f9daac);
+  background: linear-gradient(244deg,#FEF1AE,#f17aa0,#f39fbb,#f9daac);
 	background-size: 400% 400%;
 	animation: gradient 22s ease infinite;
   width: 100%;

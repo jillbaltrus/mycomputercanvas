@@ -35,19 +35,27 @@ export default function Home() {
     <div>
       <Head>
         <title>Jillian Baltrus Portfolio</title>
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
       <main>
         <div className={styles.gradientBox}>
           <Avatar
-            sx={{ width: 100, height: 100 }}
+            sx={{ width: 120, height: 120, border: "3px solid white" }}
             src={"/images/avatar.png"}
             alt="Jillian"
           />
           <h1 className={styles.title}>My Computer Canvas</h1>
         </div>
 
-        <Box p={1} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          ms={3}
+          me={3}
+          p={1}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography variant="h6">Select a project type:</Typography>
           <FormControl sx={{ m: 1 }} size="normal">
             <Select
@@ -79,7 +87,7 @@ export default function Home() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
-          background: #fcf3fa;
+          background: #faf9f6;
         }
         * {
           box-sizing: border-box;

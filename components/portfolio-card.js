@@ -1,9 +1,12 @@
 import {
   Box,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Divider,
   ImageListItem,
   ImageListItemBar,
-  Modal,
-  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -14,6 +17,7 @@ export default function PortfolioCard({ cardData }) {
   const handleModalClose = () => setModalOpen(false);
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);
+  const allImages = [cardData.image, ...cardData.otherImages];
 
   return (
     <ImageListItem key={cardData.id}>
@@ -28,34 +32,68 @@ export default function PortfolioCard({ cardData }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
-      <ImageListItemBar title={cardData.title} />
-      <Modal
+      <ImageListItemBar sx={{
+        height: '60px',
+        '& .MuiImageListItemBar-title': {fontSize: '22px'},
+                background:
+                  'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+              }} title={cardData.title} />
+
+      <Dialog
+        width={700}
         open={modalOpen}
         onClose={handleModalClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        scroll={"paper"}
       >
-        <Box sx={modalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {cardData.title}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        <DialogTitle
+          style={{
+            paddingBottom: 0,
+            marginBottom: 0,
+          }}
+          variant="h4"
+        >
+          {cardData.title}
+        </DialogTitle>
+        <DialogTitle
+          style={{
+            paddingTop: 0,
+            marginTop: 0,
+            paddingBottom: 4,
+            marginInlineStart: 5,
+          }}
+          variant="h6"
+        >
+          {cardData.year}
+        </DialogTitle>
+
+        <Divider variant="middle" sx={{ borderBottomWidth: 3 }} />
+
+        <DialogContent pt={0} mt={0}>
+          <DialogContentText pt={0} mt={0}>
             {cardData.description}
-          </Typography>
-        </Box>
-      </Modal>
+          </DialogContentText>
+          <Box
+            display="flex"
+            flexDirection={"column"}
+            alignItems="center"
+            justifyContent="center"
+            mt={2}
+          >
+            {allImages.map((image) => (
+              <img
+                src={image}
+                alt={cardData.title}
+                style={imageStyle}
+                width={550}
+              />
+            ))}
+          </Box>
+        </DialogContent>
+      </Dialog>
     </ImageListItem>
   );
 }
 
-const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
+const imageStyle = {
+  marginBottom: 20,
 };
