@@ -1,14 +1,14 @@
 export default [
-    {
-        id: 8,
-        title: "Artist Mood Ring",
-        image: "images/artistmoodring.png",
-        description:
-          "Artist Mood Ring is a fun application for users to search any artist on Spotify and see an analysis of their top tracks' characteristics. I built this app using plain JavaScript, Bootstrap and Express. It utilizes Spotify's API to search artists by name, retrieve their top 10 tracks, and retrieve the qualitative scores for each of those songs. It then aggregates them into a single score for each metric, to be displayed on the UI.",
-        type: "TECH",
-        year: 2022,
-        otherImages: [],
-      },
+  {
+    id: 8,
+    title: "Artist Mood Ring",
+    image: "images/artistmoodring.png",
+    description:
+      "Artist Mood Ring is a fun application for users to search any artist on Spotify and see an analysis of their top tracks' characteristics. I built this app using plain JavaScript, Bootstrap and Express. It utilizes Spotify's API to search artists by name, retrieve their top 10 tracks, and retrieve the qualitative scores for each of those songs. It then aggregates them into a single score for each metric, to be displayed on the UI.",
+    type: "TECH",
+    year: 2022,
+    otherImages: [],
+  },
   {
     id: 5,
     title: "Poke Her Face",
@@ -53,7 +53,8 @@ export default [
     id: 3,
     title: "Disco David",
     image: "images/disco_davide4.jpg",
-    description: "To make this this design on Photoshop, I first cut out a picture of the statue of David. I then found a simple discoball texture, lightened the opacity, and placed it over the statue with a blend mode. Then I drew the squiggles around it.",
+    description:
+      "To make this this design on Photoshop, I first cut out a picture of the statue of David. I then found a simple discoball texture, lightened the opacity, and placed it over the statue with a blend mode. Then I drew the squiggles around it.",
     type: "ART",
     year: 2023,
     otherImages: [],
