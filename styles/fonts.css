@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "AgainstRegular";
+    src: local("AgainstRegular"),
+     url("../src/fonts/AgainstRegular.otf") format("otf");
+   }
+
+@font-face {
+    font-family: "Bright";
+    src: local("Bright"),
+     url("../src/fonts/Bright.otf") format("otf");
+   }
+
+@font-face {
+    font-family: "Codigra";
+    src: local("Codigra"),
+     url("../src/fonts/Codigra.otf") format("ttf");
+   }
+
+@font-face {
+    font-family: "Glakome";
+    src: local("Glakome"),
+     url("../src/fonts/Glakome.otf") format("otf");
+   }
+
+/* @font-face {
+    font-family: "Kirome";
+    src: local("Kirome"),
+     url("../src/fonts/Kirome.otf") format("otf");
+   } */

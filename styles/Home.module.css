@@ -7,6 +7,35 @@
   align-items: center;
 }
 
+.titleContainer {
+  margin: 2rem;
+}
+
+.gradientBox {
+  background: linear-gradient(244deg,#e2a4d6,#f17aa0,#f39fbb,#ef98e2,#f9daac);
+	background-size: 400% 400%;
+	animation: gradient 22s ease infinite;
+  width: 100%;
+	min-height: 30vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -18,25 +47,30 @@
   text-decoration: underline;
 }
 
+.selectContainer {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
-  margin: 0 0 1rem;
+  margin: 2rem;
   line-height: 1.15;
+  letter-spacing: .12rem;
   font-size: 3.6rem;
-}
-
-.title {
+  font-weight: normal;
+  color: #fff;
+  font-family: 'Bright';
   text-align: center;
 }
-
-.title,
-.description {
-  text-align: center;
-}
-
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .grid {

@@ -1,102 +1,76 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import {
+  Avatar,
+  Box,
+  FormControl,
+  ImageList,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  Typography,
+} from "@mui/material";
+import Head from "next/head";
+import { useState } from "react";
+import PortfolioCard from "../components/portfolio-card";
+import data from "../public/data";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [filterSelection, setFilterSelection] = useState("ALL");
+  const [projectsToDisplay, setProjectsToDisplay] = useState(data);
+
+  const handleChange = (value) => {
+    setFilterSelection(value);
+    if (value == "ALL") {
+      setProjectsToDisplay(data);
+    } else if (value == "TECH") {
+      setProjectsToDisplay(data.filter((item) => item.type == "TECH"));
+    } else if (value == "ART") {
+      setProjectsToDisplay(data.filter((item) => item.type == "ART"));
+    } else {
+      setProjectsToDisplay([]);
+    }
+  };
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Jillian Baltrus Portfolio</title>
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <div className={styles.gradientBox}>
+          <Avatar
+            sx={{ width: 100, height: 100 }}
+            src={"/images/avatar.png"}
+            alt="Jillian"
+          />
+          <h1 className={styles.title}>My Computer Canvas</h1>
+        </div>
 
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <Box p={1} display="flex" alignItems="center" justifyContent="center">
+          <Typography variant="h6">Select a project type:</Typography>
+          <FormControl sx={{ m: 1 }} size="normal">
+            <Select
+              id="demo-simple-select"
+              value={filterSelection}
+              input={<OutlinedInput sx={{ fontSize: "1.2em" }} />}
+              onChange={(event) => handleChange(event.target.value)}
+            >
+              <MenuItem value={"ALL"}>All</MenuItem>
+              <MenuItem value={"TECH"}>Technical</MenuItem>
+              <MenuItem value={"ART"}>Art</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className={styles.container}>
+          <ImageList variant="masonry" cols={3} gap={8}>
+            {projectsToDisplay.map((item) => (
+              <PortfolioCard key={item.id} cardData={item} />
+            ))}
+          </ImageList>
         </div>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
       <style jsx global>{`
         html,
         body {
@@ -105,11 +79,12 @@ export default function Home() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          background: #fcf3fa;
         }
         * {
           box-sizing: border-box;
         }
       `}</style>
     </div>
-  )
+  );
 }
