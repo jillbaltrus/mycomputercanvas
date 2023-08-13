@@ -32,12 +32,18 @@ export default function PortfolioCard({ cardData }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
-      <ImageListItemBar sx={{
-        height: '60px',
-        '& .MuiImageListItemBar-title': {fontSize: '22px'},
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-              }} title={cardData.title} />
+      <ImageListItemBar
+        sx={{
+          height: "60px",
+          "& .MuiImageListItemBar-title": {
+            fontSize: "20px",
+            fontFamily: "Playfair Display",
+          },
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+        }}
+        title={cardData.title}
+      />
 
       <Dialog
         width={700}
@@ -49,6 +55,7 @@ export default function PortfolioCard({ cardData }) {
           style={{
             paddingBottom: 0,
             marginBottom: 0,
+            fontFamily: "Playfair Display",
           }}
           variant="h4"
         >
@@ -60,6 +67,7 @@ export default function PortfolioCard({ cardData }) {
             marginTop: 0,
             paddingBottom: 4,
             marginInlineStart: 5,
+            fontFamily: "Lora",
           }}
           variant="h6"
         >
@@ -69,7 +77,7 @@ export default function PortfolioCard({ cardData }) {
         <Divider variant="middle" sx={{ borderBottomWidth: 3 }} />
 
         <DialogContent pt={0} mt={0}>
-          <DialogContentText pt={0} mt={0}>
+          <DialogContentText pt={0} mt={0} sx={{ fontFamily: "Lora" }}>
             {cardData.description}
           </DialogContentText>
           <Box

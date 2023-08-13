@@ -1,12 +1,11 @@
 import {
-  Avatar,
   Box,
   FormControl,
   ImageList,
   MenuItem,
   OutlinedInput,
   Select,
-  Typography,
+  Typography
 } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
@@ -36,16 +35,32 @@ export default function Home() {
       <Head>
         <title>Jillian Baltrus Portfolio</title>
         <link rel="icon" href="/images/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Lora&family=Playfair+Display&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
         <div className={styles.gradientBox}>
-          <Avatar
-            sx={{ width: 120, height: 120, border: "3px solid white" }}
-            src={"/images/avatar.png"}
-            alt="Jillian"
-          />
-          <h1 className={styles.title}>My Computer Canvas</h1>
+          <Box
+            display="flex"
+            flexDirection={"column"}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <h1 className={styles.title}>Pixels & Palettes</h1>
+            <h3 className={styles.bio}>
+              This semester, I discussed how my passions of digital art and
+              computer science are closely connected. While these two
+              disciplines may seem unrelated, I argue that they’re quite similar
+              since they're both creative outlets that empower me to make
+              anything I can imagine. For this project, I wanted to bring this
+              connection to life in a way that also conveys my biggest passions.
+            </h3>
+          </Box>
         </div>
 
         <Box
@@ -56,17 +71,29 @@ export default function Home() {
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="h6">Select a project type:</Typography>
+          <Typography sx={{ fontFamily: "Playfair Display" }} variant="h6">
+            Select a project type:
+          </Typography>
           <FormControl sx={{ m: 1 }} size="normal">
             <Select
               id="demo-simple-select"
               value={filterSelection}
-              input={<OutlinedInput sx={{ fontSize: "1.2em" }} />}
+              input={
+                <OutlinedInput
+                  sx={{ fontSize: "1.2em", fontFamily: "Playfair Display" }}
+                />
+              }
               onChange={(event) => handleChange(event.target.value)}
             >
-              <MenuItem value={"ALL"}>All</MenuItem>
-              <MenuItem value={"TECH"}>Technical</MenuItem>
-              <MenuItem value={"ART"}>Art</MenuItem>
+              <MenuItem sx={{ fontFamily: "Playfair Display" }} value={"ALL"}>
+                All
+              </MenuItem>
+              <MenuItem sx={{ fontFamily: "Playfair Display" }} value={"TECH"}>
+                Technical
+              </MenuItem>
+              <MenuItem sx={{ fontFamily: "Playfair Display" }} value={"ART"}>
+                Art
+              </MenuItem>
             </Select>
           </FormControl>
         </Box>

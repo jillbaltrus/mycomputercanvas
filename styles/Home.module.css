@@ -12,7 +12,7 @@
 }
 
 .gradientBox {
-  background: linear-gradient(244deg,#FEF1AE,#f17aa0,#f39fbb,#f9daac);
+  background: linear-gradient(244deg,#decf86,#f17aa0,#e099b0,#e3b36c);
 	background-size: 400% 400%;
 	animation: gradient 22s ease infinite;
   width: 100%;
@@ -36,85 +36,36 @@
 	}
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.selectContainer {
-  margin: 1rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .title {
   margin: 2rem;
+  margin-bottom: 0rem;
   line-height: 1.15;
   letter-spacing: .12rem;
   font-size: 3.6rem;
   font-weight: normal;
   color: #fff;
-  font-family: 'Bright';
+  font-family: 'EB Garamond', serif;
   text-align: center;
+}
+
+.bio {
+  margin: 2rem;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  line-height: 1.15;
+  letter-spacing: .12rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-align: center;
+  max-width: 750px;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
 }
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
   text-align: center;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
 }
 
 @media (max-width: 600px) {
